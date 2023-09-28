@@ -65,7 +65,7 @@ def hello():
 @app.route("/")
 def hello_world():
     ua_string = request.user_agent
-    return "<p>Hello, World! {ua_string}</p>"
+    return f"<p>Hello, World! {ua_string}</p>"
 
 @app.route("/test_json")
 def test_json():
