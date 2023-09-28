@@ -63,7 +63,7 @@ def hello():
 
 
 @app.route("/")
-def hello_world():
+def hello_world(request):
     ua_string = request.user_agent
     return "<p>Hello, World! {ua_string}</p>"
 
