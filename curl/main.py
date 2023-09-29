@@ -54,9 +54,10 @@ def test_json():
             "image": "3301.jpg",
         }
 
-    if request.method == 'POST':   
+    if request.method == 'POST':
+            data=request.json
             #data = request.get_json()
-            return 'status'
+            return data
 
 
 @app.route('/images/<int:pid>.jpg')
