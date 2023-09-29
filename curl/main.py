@@ -45,7 +45,7 @@ def verify_password(username, password):
 @auth.login_required
 def index():
 
-    return "Hello, {}!".format(auth.current_user())
+    return "<p>Hello, {}!</p>".format(auth.current_user())
 
 
 
@@ -67,13 +67,19 @@ def hello_world():
     ua_string = request.user_agent
     return f"<p>Hello, World! {ua_string}</p>"
 
-@app.route("/test_json")
+@app.route("/test_json", methods=['GET', 'POST'])
 def test_json():
-    return  {
+    if request.method == 'GET':
+
+        return {
             "username": 'alexpricker',
             "theme": 'darl',
             "image": "3301.jpg",
         }
+
+    if request.method == 'POST':   
+            #data = request.get_json()
+            return 'status'
 
 
 @app.route('/images/<int:pid>.jpg')
