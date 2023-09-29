@@ -57,7 +57,7 @@ def test_json():
     if request.method == 'POST':
             data=request.json
             #data = request.get_json()
-            return return jsonify(data)
+            return  jsonify(data)
 
 
 @app.route('/images/<int:pid>.jpg')
