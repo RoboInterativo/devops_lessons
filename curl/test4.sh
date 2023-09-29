@@ -11,7 +11,6 @@ send "Host: localhost\r"
 send "Content-Type: application/json\r"
 send "Accept-Ranges: bytes\r"
 send "Content-Length: 46\r"
-send "\r"
-send '{"login":"my_login","password":"my_password"}'
+send '{"login":"my_login","password":"my_password"}\r'
 send "\r\r"
 expect eof
