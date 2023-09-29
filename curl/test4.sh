@@ -8,9 +8,9 @@ spawn telnet localhost 5000
 expect "'^]'."
 send "POST /test_json HTTP/1.1\r"
 send "Host: localhost\r"
-send "Content-Type: application/json; charset=utf-8\r"
+send "Content-Type: application/json\r"
 send "Accept-Ranges: bytes\r"
-send "Content-Length: 46\r"
+send "Content-Length: 45\r"
 send "\n"
 send '{"login":"my_login","password":"my_password"}'
 send "\r\r"
