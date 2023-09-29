@@ -1,28 +1,13 @@
 from flask import Flask,make_response,request
 from base64 import standard_b64decode
-
 from flask import Flask, redirect
-
-
-
 from flask_httpauth import HTTPBasicAuth
-
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
 
-
-
-
-
 app = Flask(__name__)
-
-
-
 auth = HTTPBasicAuth()
-
-
-
 users = {
 
     "john": generate_password_hash("hello"),
@@ -46,14 +31,6 @@ def verify_password(username, password):
 def index():
 
     return "Hello, {}!".format(auth.current_user())
-
-
-
-
-
-
-
-
 
 @app.route('/test_redirect')
 def hello():
