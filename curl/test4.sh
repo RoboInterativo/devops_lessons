@@ -10,7 +10,7 @@ send "POST /test_json HTTP/1.1\r"
 send "Host: localhost\r"
 send "Content-Type: application/json\r"
 send "Accept-Ranges: bytes\r"
-send "Content-Length: 45\r"
+send "Content-Length: 47\r"
 send "\n"
 send '{"login":"my_login","password":"my_password"}'
 send "\r\r"
