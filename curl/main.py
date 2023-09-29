@@ -59,8 +59,8 @@ def test_json():
             print (request.data)
             try:
                 print (request.json)
-            except e:
-                print (str(e))
+            except: 
+                print ("HUI")
             #data = request.get_json()
             return  {"result":"OK"}
 
