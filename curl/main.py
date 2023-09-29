@@ -57,6 +57,10 @@ def test_json():
     if request.method == 'POST':
             #data=request.json
             print (request.data)
+            try:
+                print (request.json)
+            except e:
+                print (str(e))
             #data = request.get_json()
             return  {"result":"OK"}
 
