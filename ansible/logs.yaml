@@ -1,0 +1,32 @@
+---
+- name: Test ping host all
+  hosts: web2
+  #become: yes
+  gather_facts: yes
+  tasks:
+  - name: Git checkout
+    ping:
+
+
+  # - name: Display all variables/facts known for a host
+  #   debug:
+  #     var: test_user
+  #
+  # - name: Update repositories cache and install "foo" package
+  #   apt:
+  #     name: unzip
+  #     update_cache: yes
+  #
+  # - name: Create a directory if it does not exist
+  #   file:
+  #     path: /var/www
+  #     state: directory
+  #     mode: '0755'
+  #
+  # - name: Extract foo.tgz into /var/lib/foo
+  #   unarchive:
+  #     src: app.zip
+  #     dest: /var/www
+
+
+      # verbosity: 4

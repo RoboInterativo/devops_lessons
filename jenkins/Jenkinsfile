@@ -15,24 +15,56 @@ pipeline {
 
          }
 
+           choice(
+               choices: ['install_nginx','get_logs'],
+               name: 'STEP'
+           )
+
    stages() {
      stage('Test1' ) {
        steps {
          script {
-           sh """
+           if(BRANCH=='install_nginx'){
+          sh """
            echo HELLO
            pwd
            ls -li
            """
+
            ansiblePlaybook extras: "-vv -u root --extra-vars \" inventory_dir=\"${WORKSPACE}/ansible/inventories/dev/\"\" ",
                          installation: 'ansible29',
                          inventory: "ansible/inventories/dev/inventory",
                          playbook: "ansible/test.yaml"
 
+          }
+
 
          }
         }
       }
+
+
+      stage('Test2' ) {
+        steps {
+          script {
+            if(BRANCH=='get_logs'){
+           sh """
+            echo HELLO
+            pwd
+            ls -li
+            """
+
+            ansiblePlaybook extras: "-vv -u root --extra-vars \" inventory_dir=\"${WORKSPACE}/ansible/inventories/dev/\"\" ",
+                          installation: 'ansible29',
+                          inventory: "ansible/inventories/dev/inventory",
+                          playbook: "ansible/logs.yaml"
+
+           }
+
+
+          }
+         }
+       }
    }
    post {
        success {
