@@ -7,6 +7,17 @@
   - name: Git checkout
     ping:
 
+  - name: Update the repository cache and update package "nginx" to latest version using default release squeeze-backport
+    apt:
+      name: nginx
+      state: latest
+
+  - name: Make sure a service is running
+    systemd:
+      state: started
+      name: httpd
+      enabled: yes
+
   # - name: Display all variables/facts known for a host
   #   debug:
   #     var: test_user
