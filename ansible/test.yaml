@@ -16,7 +16,7 @@
   - name: Make sure a service is running
     systemd:
       state: started
-      name: httpd
+      name: nginx
       enabled: yes
 
   # - name: Display all variables/facts known for a host
