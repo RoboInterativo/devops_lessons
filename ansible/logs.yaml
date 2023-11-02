@@ -7,6 +7,17 @@
   - name: Git checkout
     ping:
 
+  - name: Specifying a destination path
+    fetch:
+      src: /var/log/nginx/access.log
+      dest: access.log
+      flat: yes
+
+    - name: Specifying a destination path
+      fetch:
+        src: /var/log/nginx/error.log
+        dest: error.log
+        flat: yes
 
   # - name: Display all variables/facts known for a host
   #   debug:
