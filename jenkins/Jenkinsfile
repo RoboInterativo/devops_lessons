@@ -16,23 +16,6 @@ pipeline {
          }
 
    stages() {
-     stage('SCM') {
-       steps {
-         script{
-           checkout([$class: 'GitSCM', branches: [[name: BRANCH]],
-              doGenerateSubmoduleConfigurations: false,
-              extensions: [[$class: 'RelativeTargetDirectory',
-              relativeTargetDir: 'app/']], gitTool: 'Default',
-              submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ssh-git',
-              url: 'git@github.com:RoboInterativo/robomath.git']]])
-              sh 'zip app.zip app -r'
-              sh 'mv app.zip ansible/files'
-
-         }
-
-       }
-
-     }
      stage('Test1' ) {
        steps {
          script {
