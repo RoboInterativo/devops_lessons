@@ -13,12 +13,11 @@ pipeline {
          )
 
 
-         }
-
            choice(
                choices: ['install_nginx','get_logs'],
                name: 'STEP'
            )
+        }
 
    stages() {
      stage('Test1' ) {
