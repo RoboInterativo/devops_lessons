@@ -6,12 +6,6 @@ pipeline {
     //
     // }
     parameters {
-          string(
-           name: 'BRANCH',
-           defaultValue: 'feature/init',
-           description: 'BRANCH'
-         )
-
 
            choice(
                choices: ['install_nginx','get_logs'],
@@ -23,7 +17,7 @@ pipeline {
      stage('Test1' ) {
        steps {
          script {
-           if(BRANCH=='install_nginx'){
+           if (STEP == 'install_nginx') {
           sh """
            echo HELLO
            pwd
@@ -46,7 +40,7 @@ pipeline {
       stage('Test2' ) {
         steps {
           script {
-            if(BRANCH=='get_logs'){
+            if (STEP == 'get_logs') {
            sh """
             echo HELLO
             pwd
